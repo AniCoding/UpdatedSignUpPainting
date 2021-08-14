@@ -1,0 +1,113 @@
+@import "../../../node_modules/bulma/css/bulma.min.css";
+
+.canvas-component {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 20px;
+  height: auto;
+}
+
+.controls-panel {
+  display: inline-flex;
+  flex-direction: column;
+  flex: 1;
+  max-width: 100%;
+  justify-content: flex-start;
+  min-height: 40px;
+}
+
+.circles-container {
+  display: flex;
+  flex: 1;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 380px;
+}
+
+.projects-container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 40px;
+}
+
+.project {
+  display: flex;
+  margin-left: 5px;
+  padding: 2px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+}
+
+.circles-container.container-100 {
+  flex-basis: 250px;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.circles-container.container-225 {
+  flex-basis: 375px;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.container-400 {
+  flex-basis: 500px;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.button-generate {
+  margin-left: 10px;
+}
+
+.picker-wrapper {
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #000000;
+  margin-left: 10px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.picker-inner {
+  display: flex;
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  border-radius: 30px;
+}
+
+.picker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 30px;
+  opacity: 0;
+}
+
+.mb-2 {
+  cursor: pointer;
+}
+
+.is-flex {
+  width: fit-content;
+}
+
+.button-reset {
+  /* margin-left: 10px; */
+}
+
+.button-fill-all {
+  /* margin-left: 10px; */
+}

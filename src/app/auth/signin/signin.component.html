@@ -1,0 +1,42 @@
+<div class="ui middle aligned center aligned grid signin-container">
+    <div class="column">
+      <h2 class="ui image header">
+        <div class="content">
+          Log-in to your account
+        </div>
+      </h2>
+      <form class="ui large form" (ngSubmit)="onSubmit()" [formGroup]="signInForm">
+        <div class="ui stacked secondary  segment">
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="user icon"></i>
+                <input type="text" name="email" placeholder="E-mail address" formControlName="email">
+                <div *ngIf="signInForm.controls.email.errors?.required && signInForm.controls.email.touched">
+                  Please enter your email
+                </div>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="lock icon"></i>
+              <input type="password" name="password" placeholder="Password" formControlName="password">
+              <div *ngIf="signInForm.controls.password.errors?.required && signInForm.controls.email.touched">
+                Please enter your password
+              </div>
+            </div>
+          </div>
+          <div class="ui fluid large teal submit button"
+          (click)="onSubmit()"
+          >Login</div>
+        </div>
+  
+        <div class="ui error message"></div>
+  
+      </form>
+  
+      <div class="ui message">  
+        New to us? <span (click)="navigateToSignUp()" class="link">Sign Up</span>
+      </div>
+    </div>
+  </div>
+

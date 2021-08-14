@@ -1,0 +1,88 @@
+<div class="signup-container">
+<h3>Create User</h3>
+
+<form class="ui large form" (ngSubmit)="onSubmit()" [formGroup]="AuthForm">
+  <div class="ui stacked secondary segment">
+    <div class="field">
+      <div>
+        
+        <label for="firstName">
+          First Name
+          <input type="text" name="firstName" formControlName="firstName" />
+        </label>
+        <div class="help is-danger" *ngIf="AuthForm.errors?.minlength">
+          Value is required.
+        </div>
+      
+        {{ AuthForm.get("firstName")?.errors | json }}
+      </div>
+    </div>
+
+    <div class="field">
+      <div>
+        <label for="lastName">
+          Last Name
+          <input type="text" name="lastName" formControlName="lastName" />
+        </label>
+        {{ AuthForm.get("lastName")?.errors | json }}
+      </div>
+    </div>
+
+    <div class="field">
+      <div>
+        <label for="email">
+          Email
+          <input type="text" name="email" formControlName="email" />
+        </label>
+        <div *ngIf AuthForm.controls.email.touched >
+          Please enter your email
+        </div>
+        <p>User exists</p> 
+        {{ AuthForm.get("email")?.errors | json }}
+      </div>
+    </div>
+
+    <div class="field">
+      <div>
+        <label for="email">
+          Password
+          <input type="password" name="password" formControlName="password" />
+        </label>
+        {{ AuthForm.get("password")?.errors | json }}
+      </div>
+    </div>
+
+    <div class="field">
+      <div>
+        <label for="email">
+          Confirm Password
+          <input
+            type="password"
+            name="confirmPassword"
+            formControlName="confirmPassword"
+          />
+        </label>
+         <div *ngIf >
+
+         </div>
+        <p>Passwords don't match</p> 
+        {{ AuthForm.get("confirmPassword")?.errors | json }}
+      </div>
+    </div>
+    {{AuthForm.errors | json}}
+
+    <div class="field">
+      <div class="ui checkbox">
+        <input type="checkbox" class="form-check-label" />
+        <label>I agree to the Terms and Conditions</label>
+      </div>
+    </div>
+    <button class="ui fluid large teal submit button primary" type="submit">Sign Up</button>
+    <div class="text-center">
+      <span (click)="navigateToSignIn()" class="link">Already have an account</span>
+    </div>
+  </div>
+
+  <div class="ui error message"></div>
+</form>
+</div>

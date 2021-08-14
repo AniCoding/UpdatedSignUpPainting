@@ -1,0 +1,17 @@
+@import "../node_modules/semantic-ui-css/semantic.min.css";
+
+body {
+    background-image: linear-gradient(180deg, #3e8ed0, transparent);
+    min-height: 100vh;
+}
+
+.link {
+    color: #00b5ad;
+    text-decoration: underline;
+    cursor: pointer;
+    padding-left: 8px;
+  }
+  .link:hover {
+    color: #038d86;
+  }
+  
