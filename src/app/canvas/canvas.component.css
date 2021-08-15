@@ -17,13 +17,53 @@
   min-height: 40px;
 }
 
+input[type=text] {
+  border: 1px solid #ccc;
+  margin-left: 10px;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+.is-flex {
+  margin-top: 10px;
+}
+ .is-flex> button {
+  display: inline-block;
+  padding: 5px 15px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: rgba(231, 83, 182);
+  border: none;
+  border-radius: 15px;
+ 
+}
+
+ .is-flex> button:hover {background-color: #3e5a8e}
+
+ .is-flex> button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
 .circles-container {
-  display: flex;
+  display: grid;
   flex: 1;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-  width: 380px;
+}
+
+.container-100 {
+  grid-template-columns: repeat(10, 1fr);
+}
+
+.container-225 {
+  grid-template-columns: repeat(15, 1fr);
+}
+
+.container-400 {
+  grid-template-columns: repeat(20, 1fr);
 }
 
 .projects-container {
