@@ -20,13 +20,13 @@
             <div class="ui left icon input">
               <i class="lock icon"></i>
               <input type="password" name="password" placeholder="Password" formControlName="password">
-              <div *ngIf="signInForm.controls.password.errors?.required && signInForm.controls.email.touched">
+              <div *ngIf="signInForm.controls.password.errors?.required && signInForm.controls.password.touched">
                 Please enter your password
               </div>
             </div>
           </div>
           <div class="ui fluid large teal submit button"
-          (click)="onSubmit()"
+          (click)="onSubmit()"  
           >Login</div>
         </div>
   
