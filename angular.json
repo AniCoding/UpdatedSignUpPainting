@@ -100,7 +100,7 @@
             }    },
               
             "deploy": {    "builder": "angular-cli-ghpages:deploy",  
-                "options": {    "baseHref": "https://github.com/AniCoding/UpdatedSignUpPainting",    
+                "options": {    "baseHref": "https://AniCoding.github.io/UpdatedSignUpPainting/",  
                   "name": "signinsignupcanvas",    "email": " ani.webdevelopment@gmail.com" 
           }
         }
