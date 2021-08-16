@@ -58,10 +58,10 @@ this.isChecked = event.checked;
 
   onSubmit(){
     console.log('look in the local storage and if email doesnt exist add else return an error');
-    console.log(this.AuthForm);
+    console.log(this.AuthForm.valid);
     this.isSubmitted = true;
     
-    if(this.AuthForm.valid && this.isChecked) {
+    if(this.AuthForm.valid ) {
       const newUser: IUser = {
         id: this.newId(),
         firstName: this.AuthForm.get('firstName')?.value,
