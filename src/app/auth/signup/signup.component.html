@@ -1,19 +1,20 @@
 <div class="signup-container">
 <h3>Create User</h3>
 
-<form class="ui large form" (ngSubmit)="onSubmit()" [formGroup]="AuthForm">
+<form class="ui large form" (submit)="onSubmit()" [formGroup]="AuthForm">
   <div class="ui stacked secondary segment">
     <div class="field">
       <div>
-        
         <label for="firstName">
           First Name <span class="required">*</span>
-          <input type="text" name="firstName" formControlName="firstName" />
         </label>
-        <div class="help is-danger" *ngIf="AuthForm.errors?.minlength">
+          <input type="text" name="firstName" formControlName="firstName" />
+        <div class="error-message" *ngIf="AuthForm.controls.firstName.errors?.required && isSubmitted">
           Value is required.
         </div>
-      
+        <div class="error-message" *ngIf="AuthForm.controls.firstName.errors?.minlength && isSubmitted">
+          Min length for first name is 3.
+        </div>
     </div>
     </div>
 
@@ -21,9 +22,14 @@
         <div>
         <label for="lastName">
           Last Name <span class="required">*</span>
-         <input type="text" name="lastName" formControlName="lastName" />
         </label>
-       
+         <input type="text" name="lastName" formControlName="lastName" />
+        <div class="error-message" *ngIf="AuthForm.controls.lastName.errors?.required && isSubmitted">
+          Value is required.
+        </div>
+        <div class="error-message" *ngIf="AuthForm.controls.lastName.errors?.minlength && isSubmitted">
+          Min length for first name is 3.
+        </div>
       
       </div>
     </div>
@@ -32,23 +38,27 @@
       <div>
         <label for="email">
           Email <span class="required">*</span>
-          <input type="text" name="email" formControlName="email" />
         </label>
-        <div *ngIf AuthForm.controls.email.touched >
+          <input type="text" name="email" formControlName="email" />
+        <div class="error-message" *ngIf="AuthForm.controls.email.errors?.required && isSubmitted" >
           Please enter your email
         </div>
-        <!-- <p>User exists</p>  -->
-    
+        <div class="error-message" *ngIf="AuthForm.controls.email.errors?.email && isSubmitted" >
+          Wrong email
+        </div>    
+        <div class="error-message" *ngIf="AuthForm.errors?.userExists" >
+          Email already exists 
+        </div>    
       </div>
     </div>
 
     <div class="field">
       <div>
-        <label for="email">
+        <label for="password">
           Password <span class="required">*</span>
-          <input type="password" name="password" formControlName="password" />
         </label>
-        <div *ngIf="AuthForm.controls.password.errors?.required && AuthForm.controls.password.touched">
+        <input id="password" type="password" name="password" formControlName="password" />
+        <div class="error-message" *ngIf="AuthForm.controls.password.errors?.required && isSubmitted">
           Please enter your password
         </div>
         </div>
@@ -56,30 +66,37 @@
 
     <div class="field">
       <div>
-        <label for="email">
+        <label for="confirmPassword">
           Confirm Password <span class="required">*</span>
+        </label>
           <input
             type="password"
             name="confirmPassword"
+            id="confirmPassword"
             formControlName="confirmPassword"
           />
-        </label>
-         <div *ngIf >
-
-         </div>
-        <!-- <p>Passwords don't match</p>  -->
+        
+        <div class="error-message" *ngIf="AuthForm.controls.confirmPassword.errors?.required && isSubmitted" >
+          This field is required.
+       </div>
+       <div class="error-message" *ngIf="AuthForm.errors?.passwordsDontMatch && AuthForm.controls.confirmPassword.dirty" >
+        Confirm Password must be the same as Password
+     </div>
       </div>
     </div>
+
     <div class="field">
       <div class="ui checkbox">
-        <input type="checkbox" class="form-check-label" />
+        <input type="checkbox" class="form-check-label" (change)="checkboxValueTriggered($event)" />
         <label>I agree to the Terms and Conditions</label>
       </div>
     </div>
-    <button class="ui fluid large teal submit button primary" type="submit" >Sign Up</button>
+
+    <button class="ui fluid large teal submit button primary" type="submit" (click)="onSubmit()" [disabled]="!isChecked" >Sign Up</button>
     <div class="text-center">
       <span (click)="navigateToSignIn()" class="link">Already have an account</span>
     </div>
+
   </div>
 
   <div class="ui error message"></div>
